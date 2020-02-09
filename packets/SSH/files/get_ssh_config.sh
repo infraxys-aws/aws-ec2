@@ -1,0 +1,1 @@
+cat ~/.ssh/config

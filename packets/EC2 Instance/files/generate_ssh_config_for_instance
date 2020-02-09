@@ -1,0 +1,39 @@
+#set ($vpcName = $container.getAttribute("aws_vpc_name", false))
+#if ($vpcName == "")
+#stop
+#end
+function _generate_config() {
+    local instance_name="$instance.getAttribute("instance_name")";
+    local ssh_connect_username="$instance.getAttribute("ssh_connect_username")";
+    local vpc_name="$vpcName";
+    local bastion_name="$container.getAttribute("aws_vpc_bastion_name")";
+    local private_key_file="$instance.getAttribute("private_key_file")";
+#[[	
+	local function_name="_generate_config" target_variable_name private_ip;
+	import_args "$@";
+	check_required_arguments "$function_name" target_variable_name;
+
+	log_info "Generating SSH configuration for instance $instance_name.";
+	get_instance_private_ip --region $aws_vpc_region --vpc_name "$vpc_name" --instance_name "$instance_name" --target_variable_name private_ip;
+	
+	if [ -z "$private_ip" ]; then
+		log_info "Instance IP for $instance_name not set so not creating SSH config for it.";
+		return;
+    fi;
+    local proxy_command="ProxyCommand ssh $bastion_name -W %h:%p";
+	local result=$(cat << EOF 
+Host $instance_name
+    Hostname $private_ip
+    User $ssh_connect_username
+    $proxy_command
+    IdentityFile "$private_key_file"
+    
+EOF
+);
+	eval "$target_variable_name='$result'";
+}
+
+_generate_config "$@";
+
+]]#
+

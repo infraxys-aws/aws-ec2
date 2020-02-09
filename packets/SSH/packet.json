@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "label": "SSH",
+  "type": "",
+  "autoExpand": false,
+  "skipEveryInstanceFiles": false,
+  "limitToAllowedChildren": false,
+  "autoGenerate": false,
+  "inheritFilesFromPacketGuid": "",
+  "key": "",
+  "infoHtml": "",
+  "attributes": [],
+  "files": [
+    {
+      "guid": "3acb5712-66e9-48c0-9d04-64e76e5cf403",
+      "filename": "get_ssh_config.sh",
+      "includeName": "",
+      "menuCaption": "Get SSH config",
+      "directory": "",
+      "runsIndependent": false,
+      "runsParallel": false,
+      "runBeforeIndependentActions": false,
+      "parseWithVelocity": true,
+      "executable": true,
+      "saveWith": "CURRENT INSTANCE",
+      "isInteractive": false,
+      "hideRunnerWindow": false,
+      "timeoutSeconds": 3600,
+      "key": "",
+      "menuOrder": 100,
+      "menuSeparatorBefore": false,
+      "hideFromInstanceActionsMenu": false,
+      "hideFromBottomMenu": false,
+      "menuPath": ""
+    }
+  ],
+  "allowedChildren": []
+}

@@ -1,0 +1,62 @@
+{
+  "version": "1.0",
+  "label": "EC2 utiils",
+  "type": "",
+  "autoExpand": false,
+  "skipEveryInstanceFiles": false,
+  "limitToAllowedChildren": false,
+  "autoGenerate": false,
+  "key": "",
+  "infoHtml": "",
+  "attributes": [
+    {
+      "name": "aws_profile_names",
+      "caption": "AWS profile names",
+      "type": "java.lang.String",
+      "formColumn": 1,
+      "formOrder": 1100,
+      "visibility": "ALWAYS VISIBLE",
+      "writability": "ALWAYS",
+      "required": true,
+      "isPartOfKey": true,
+      "listOfValues": "",
+      "cacheMinutes": 0,
+      "referenceFilter": "",
+      "referenceValueAttributeName": "",
+      "referenceChildGuidFilter": "",
+      "newItemsAllowed": false,
+      "parseWithVelocity": false,
+      "cloneAttribute": true,
+      "autoExport": true,
+      "inputPrompt": "",
+      "tooltip": "\u003cp\u003eEnter a comma-separated list of profile-names that should be used when running these utils\u003c/p\u003e\n\u003cp\u003eAWS Profiles can be added through variables of type \"AWS-CONFIG\" and \"AWS-CREDENTIALS\" and follow the same structure as the respective files under .aws in your home directory.\u003c/p\u003e",
+      "scope": "Instance",
+      "defaultValue": ""
+    }
+  ],
+  "files": [
+    {
+      "guid": "6120ee09-9ad6-4ef5-b117-25ce97b84d13",
+      "filename": "list_open_to_the_world_acls.py",
+      "includeName": "",
+      "menuCaption": "List open to the world ACLs",
+      "directory": "",
+      "runsIndependent": false,
+      "runsParallel": false,
+      "runBeforeIndependentActions": false,
+      "parseWithVelocity": false,
+      "executable": true,
+      "saveWith": "CURRENT INSTANCE",
+      "isInteractive": false,
+      "hideRunnerWindow": false,
+      "timeoutSeconds": 3600,
+      "key": "",
+      "menuOrder": 100,
+      "menuSeparatorBefore": false,
+      "hideFromInstanceActionsMenu": false,
+      "hideFromBottomMenu": false,
+      "menuPath": ""
+    }
+  ],
+  "allowedChildren": []
+}
