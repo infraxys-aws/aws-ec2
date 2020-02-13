@@ -1,0 +1,1 @@
+$instance.getAttribute("listener_config_hcl")

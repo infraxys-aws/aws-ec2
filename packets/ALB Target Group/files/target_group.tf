@@ -1,0 +1,1 @@
+$instance.getAttribute("target_group_hcl")

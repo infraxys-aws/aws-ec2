@@ -31,9 +31,9 @@ $instance.getAttribute("instance_tags")
     }
     
     root_block_device {
-        volume_type = "gp2"
-        volume_size = "20"
-        delete_on_termination = true
+        volume_type = "$instance.getAttribute("root_block_device_type")"
+        volume_size = "$instance.getAttribute("root_block_device_size")"
+        delete_on_termination = $instance.getBoolean("root_block_device_del_on_term")
     }
 #if ($hasUserData)    
     user_data           = data.template_file.user_data.rendered
@@ -54,3 +54,6 @@ data "template_file" "user_data" {
 ]]#
 #end
 
+output "${instance_name}_private_ip" {
+    value = aws_instance.${instance_name}.private_ip
+}

@@ -9,14 +9,14 @@ function _generate_config() {
 	local aws_region="$instance.getAttribute("aws_region")";
 	
 #[[	
-
 	get_bastion_ssh_config --vpc_name "$vpc_name" \
 	    --region "$aws_region" \
 		--bastion_name "$bastion_name" \
 		--bastion_private_key_file "$bastion_private_key_file" \
 		--ssh_username "$ssh_username" \
-		--target_variable_name "$target_variable_name"
-		
+		--target_variable_name "$target_variable_name" \
+		--fail_if_not_found "false";
+
 }
 
 _generate_config "$@";
