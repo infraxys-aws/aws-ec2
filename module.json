@@ -5,6 +5,10 @@
       "branch": "master"
     },
     {
+      "git_url": "https://github.com/infraxys-aws/aws-vpc.git",
+      "branch": "master"
+    },
+    {
       "git_url": "https://github.com/infraxys-aws/aws-route53.git",
       "branch": "master"
     }
