@@ -270,28 +270,6 @@
       "hideFromInstanceActionsMenu": false,
       "hideFromBottomMenu": false,
       "menuPath": ""
-    },
-    {
-      "guid": "f2e91c10-671d-4b98-b6b8-853ca033ac65",
-      "filename": "generate_ssh_config_for_bastion",
-      "includeName": "",
-      "menuCaption": "generate_ssh_config_for_bastion",
-      "directory": "",
-      "runsIndependent": false,
-      "runsParallel": false,
-      "runBeforeIndependentActions": false,
-      "parseWithVelocity": true,
-      "executable": false,
-      "saveWith": "CURRENT INSTANCE",
-      "isInteractive": false,
-      "hideRunnerWindow": false,
-      "timeoutSeconds": 3600,
-      "key": "",
-      "menuOrder": 100,
-      "menuSeparatorBefore": false,
-      "hideFromInstanceActionsMenu": false,
-      "hideFromBottomMenu": false,
-      "menuPath": ""
     }
   ],
   "allowedChildren": []

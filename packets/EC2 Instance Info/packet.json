@@ -149,29 +149,6 @@
       "defaultValue": "ubuntu"
     }
   ],
-  "files": [
-    {
-      "guid": "9e852f75-63cc-4497-9ad1-c58723ba6af6",
-      "filename": "generate_ssh_config.sh",
-      "includeName": "",
-      "menuCaption": "Get SSH config",
-      "directory": "",
-      "runsIndependent": false,
-      "runsParallel": false,
-      "runBeforeIndependentActions": false,
-      "parseWithVelocity": true,
-      "executable": true,
-      "saveWith": "CURRENT INSTANCE",
-      "isInteractive": false,
-      "hideRunnerWindow": false,
-      "timeoutSeconds": 3600,
-      "key": "",
-      "menuOrder": 100,
-      "menuSeparatorBefore": false,
-      "hideFromInstanceActionsMenu": false,
-      "hideFromBottomMenu": false,
-      "menuPath": ""
-    }
-  ],
+  "files": [],
   "allowedChildren": []
 }
