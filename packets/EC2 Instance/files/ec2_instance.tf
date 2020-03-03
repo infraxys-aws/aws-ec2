@@ -18,6 +18,7 @@ resource "aws_instance" "$instance_name" {
     ami = "${D}{var.instance_ami}"
     key_name = "$instance.getAttribute("key_pair_name")"
     subnet_id = $instance.getAttribute("instance_subnet_id")
+    associate_public_ip_address = $instance.getBoolean("associate_public_ip_address")
     vpc_security_group_ids = [
 #foreach ($securityGroup in $securityGroups)
       aws_security_group.${securityGroup.getAttribute("security_group_name")}.id#if( $foreach.hasNext ),#end
