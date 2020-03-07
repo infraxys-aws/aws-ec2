@@ -58,3 +58,11 @@ data "template_file" "user_data" {
 output "${instance_name}_private_ip" {
     value = aws_instance.${instance_name}.private_ip
 }
+
+output "${instance_name}_public_ip" {
+    value = aws_instance.${instance_name}.public_ip
+}
+
+output "${instance_name}_public_dns" {
+    value = aws_instance.${instance_name}.public_dns
+}
