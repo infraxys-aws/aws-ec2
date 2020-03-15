@@ -3,12 +3,40 @@
 #end
 
 #set ($vpcNamePrefix = $instance.parent.getAttribute("vpc_name_prefix"))
+#set ($imageId = $instance.getAttribute("image_id"))
+#set ($isAmiId = $imageId.startsWith("ami-"))
+
+#if (! $isAmiId)
+data "aws_ami" "bastion_ami" {
+  most_recent      = true
+  owners           = [$velocityUtils.doubleQuoteCsvList($instance.getAttribute("image_owners"))]
+
+  filter {
+    name   = "name"
+    values = ["$imageId"]
+  }
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+}
+#end
 
 resource "aws_launch_configuration" "bastion_lc" {
   name_prefix   = "${vpcNamePrefix}-"
-  image_id      = "$image_id"
-  instance_type = "$instance_type"
-  key_name      = "$key_pair_name"
+#if ($isAmiId)
+  image_id      = "$imageId"
+#else
+  image_id      = data.aws_ami.bastion_ami.id
+#end
+  instance_type = "$instance.getAttribute("instance_type")"
+  key_name      = "$instance.getAttribute("key_pair_name")"
   associate_public_ip_address = true
   security_groups      = [
     "${D}{aws_security_group.bastion-sg.id}"
@@ -19,12 +47,11 @@ resource "aws_launch_configuration" "bastion_lc" {
 }
 
 resource "aws_autoscaling_group" "bastion_asg" {
-  name                 = "$bastion_name"
+  name                 = "$instance.getAttribute("bastion_name")"
   launch_configuration = "${D}{aws_launch_configuration.bastion_lc.name}"
   min_size             = 1
   max_size             = 1
   desired_capacity     = 1
-  ##vpc_zone_identifier  = ["${D}{module.vpc.public_subnets}"]
   vpc_zone_identifier = module.vpc.public_subnets
 
   health_check_grace_period = "60"
@@ -38,3 +65,4 @@ $propagated_tag_list
 ]
   
 }
+

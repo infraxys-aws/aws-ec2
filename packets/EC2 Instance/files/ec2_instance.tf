@@ -1,6 +1,38 @@
 #set ($vpcInstance = $instance.byVelocity("vpc_velocity_name"))
 #set ($securityGroups = $instance.getInstancesByPacketType("SECURITY_GROUP"))
 #set ($instanceProfile = $instance.getInstanceByPacketTypeAndAttributeValue("IAM_ROLE", "use_for_instance_profile", "1"))
+#set ($instanceName = $instance.getAttribute("instance_name"))
+#set ($imageId = $instance.getAttribute("image_id"))
+#set ($isAmiId = $imageId.startsWith("ami-"))
+
+#if (! $isAmiId)
+  #set ($packerInstance = $instance.byVelocity("image_id", true, false))
+  #if ($packerInstance) ## with Packer Instance and "ami-", we use the environment variable
+    #set ($prefix = $packerInstance.getAttribute("ami_name_prefix"))
+  #else
+  	#set ($prefix = $imageId)
+  #end
+
+data "aws_ami" "$instanceName" {
+  most_recent      = true
+  owners           = [$velocityUtils.doubleQuoteCsvList($instance.getAttribute("image_owners"))]
+
+  filter {
+    name   = "name"
+    values = ["$prefix"]
+  }
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+}
+#end
 
 #if ($instance.getAttribute("user_data_script") != "")
     #set ($hasUserData = true)
@@ -8,14 +40,13 @@
     #set ($hasUserData = false)
 #end
 
-# instance_ami is set through the init.sh script which will figure out which AMI to use
-variable "instance_ami" {
-    type="string"
-}
-
-resource "aws_instance" "$instance_name" {
+resource "aws_instance" "$instanceName" {
     instance_type = "$instance.getAttribute("instance_type")"
-    ami = "${D}{var.instance_ami}"
+#if ($isAmiId)
+    ami = "$imageId"
+#else
+    ami      = data.aws_ami.${instanceName}.id
+#end
     key_name = "$instance.getAttribute("key_pair_name")"
     subnet_id = $instance.getAttribute("instance_subnet_id")
     associate_public_ip_address = $instance.getBoolean("associate_public_ip_address")
@@ -55,14 +86,14 @@ data "template_file" "user_data" {
 ]]#
 #end
 
-output "${instance_name}_private_ip" {
-    value = aws_instance.${instance_name}.private_ip
+output "${instanceName}_private_ip" {
+    value = aws_instance.${instanceName}.private_ip
 }
 
-output "${instance_name}_public_ip" {
-    value = aws_instance.${instance_name}.public_ip
+output "${instanceName}_public_ip" {
+    value = aws_instance.${instanceName}.public_ip
 }
 
-output "${instance_name}_public_dns" {
-    value = aws_instance.${instance_name}.public_dns
+output "${instanceName}_public_dns" {
+    value = aws_instance.${instanceName}.public_dns
 }
