@@ -1,17 +1,4 @@
 #set ($tgwName = $instance.getAttribute("tgw_name"))
-terraform {
-   backend "s3" {
-   bucket = "$container.getAttribute("state_s3_bucket")"
-   key = "$container.getAttribute("state_key")/${instance.getAttribute("tgw_name")}.tfstate"
-   encrypt = "true"
-   region = "$container.getAttribute("state_aws_region")"
- }
-}
-
-provider "aws" {
-  region = "us-east-1"
-  version = "~> 2.26"
-}
 
 resource "aws_ec2_transit_gateway" "$tgwName" {
   description = "$instance.getAttribute("tgw_description")"
@@ -40,6 +27,12 @@ output "id" {
 	value = "${D}{aws_ec2_transit_gateway.${tgwName}.id}"
 	description = "EC2 Transit Gateway identifier"
 }
+
+output "arn" {
+	value = "${D}{aws_ec2_transit_gateway.${tgwName}.arn}"
+	description = "EC2 Transit Gateway ARN"
+}
+
 
 output "owner_id" {
 	value = "${D}{aws_ec2_transit_gateway.${tgwName}.owner_id}"

@@ -1,17 +1,76 @@
-#set ($tgwName = $instance.getAttribute("tgw_name"))
+#set ($tgwInstance = $instance.byVelocity("transit_gateway_velocity_name", false, false))
+#if ($tgwInstance)
+	#set ($tgwName = $tgwInstance.getAttribute("tgw_name"))
+	#set ($tgwArnGet = "data.terraform_remote_state." + $tgwName + "-state.outputs.arn")
+	#set ($tgwIdGet = "data.terraform_remote_state." + $tgwName + "-state.outputs.id")
+#else
+	#set ($tgwName = $instance.parent.getAttribute("tgw_name"))
+	#set ($tgwArnGet = "aws_ec2_transit_gateway." + $tgwName + ".arn")
+	#set ($tgwIdGet = "aws_ec2_transit_gateway." + $tgwName + ".id")
+#end
 #set ($attachmentName = $instance.getAttribute("attachment_name"))
-## vpc state name should be unique because we can have multiple vpc configs under one transit gateway 
-#set ($vpcInstance = $instance.byVelocity("vpc_velocity_name"))
-#set ($vpcStateName = $vpcInstance.getAttribute("vpc_name"))
+#set ($stateInstance = $instance.byVelocity("vpc_state_velocity_name", false, false))
 
-data "terraform_remote_state" "$vpcStateName" {
-$vpcInstance.getAttribute("remote_state_hcl")
+#if ($stateInstance)
+    #set ($tgaVpcStateName = $stateInstance.getAttribute("state_name"))
+    #set ($subnetIds = "data.terraform_remote_state." + $tgaVpcStateName + ".outputs.private_subnets")
+	#set ($vpcId = "data.terraform_remote_state." + $tgaVpcStateName + ".outputs.vpc_id")
+#else
+	#set ($subnetIds = "[ " + $instance.getAttribute("subnet_ids") + " ]")
+	#set ($vpcId = '"' + $instance.getAttribute("vpc_id") + '"')
+#end
+
+#if ($instance.getAttribute("aws_profile") == "")
+  #set ($providerLine = "")
+#else
+  #set ($providerLine = 'provider = "aws.' + $attachmentName + '"')
+  
+data "aws_caller_identity" "$attachmentName" {
+  $providerLine
 }
 
+resource "aws_ram_resource_share" "$attachmentName" {
+  # $providerLine
+
+  name = "$attachmentName"
+
+  tags = {
+    Name = "$attachmentName"
+  }
+}
+
+// Share the transit gateway...
+resource "aws_ram_resource_association" "$attachmentName" {
+  #$providerLine
+  resource_arn       = $tgwArnGet
+  resource_share_arn = aws_ram_resource_share.${attachmentName}.id
+}
+
+// ...with the second account.
+resource "aws_ram_principal_association" "$attachmentName" {
+  $providerLine
+
+  principal          = data.aws_caller_identity.${attachmentName}.account_id
+  resource_share_arn = aws_ram_resource_share.${attachmentName}.id
+}
+
+#end
+
+
+## data "terraform_remote_state" "$tgaVpcStateName" {
+## backend = "s3"
+##   config = {
+##     bucket = "$stateInstance.getAttribute("state_s3_bucket")"
+##     key = "$stateInstance.getAttribute("state_key")"
+##     region = "$stateInstance.getAttribute("state_aws_region")"
+##   }
+## }
+
 resource "aws_ec2_transit_gateway_vpc_attachment" "$attachmentName" {
-  subnet_ids         = data.terraform_remote_state.${vpcStateName}.outputs.private_subnets
-  transit_gateway_id = aws_ec2_transit_gateway.${tgwName}.id
-  vpc_id             = data.terraform_remote_state.${vpcStateName}.outputs.vpc_id
+  $providerLine
+  subnet_ids         = $subnetIds 
+  transit_gateway_id = $tgwIdGet
+  vpc_id             = $vpcId
   dns_support        = "$instance.getAttribute("dns_support")"
   ipv6_support        = "$instance.getAttribute("ipv6_support")"
   transit_gateway_default_route_table_association        = $instance.getBoolean("transit_gateway_default_route_table_association")
@@ -22,8 +81,8 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "$attachmentName" {
 }
 
 output "${attachmentName}_id" {
-	value = "${D}{aws_ec2_transit_gateway_vpc_attachment.${attachmentName}.id}"
-	description = "EC2 Transit Gateway Amazon Resource Name (ARN)"
+  value = "${D}{aws_ec2_transit_gateway_vpc_attachment.${attachmentName}.id}"
+  description = "EC2 Transit Gateway Amazon Resource Name (ARN)"
 }
 
 output "${attachmentName}_vpc_owner_id" {
