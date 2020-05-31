@@ -1,16 +1,17 @@
 {
   "version": "1.0",
+  "id": "d26c8247-6c07-4958-a220-85e2fb70dd9d",
   "label": "ALB Listener Config - %listener_name%",
   "type": "AWS-ALB-LISTENER",
   "autoExpand": false,
   "skipEveryInstanceFiles": false,
   "limitToAllowedChildren": false,
   "autoGenerate": false,
-  "inheritFilesFromPacketGuid": "",
   "key": "",
   "infoHtml": "",
   "attributes": [
     {
+      "id": "6ef48373-f373-4ec9-b87a-eb4397952ef5",
       "name": "listener_config_hcl",
       "caption": "Config HCL",
       "type": "byte[]",
@@ -22,19 +23,20 @@
       "isPartOfKey": false,
       "height": 400,
       "listOfValues": "",
+      "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
-      "autoExport": true,
       "inputPrompt": "",
       "tooltip": "",
       "scope": "Instance",
       "defaultValue": ""
     },
     {
+      "id": "a76144c4-23f7-48f8-9996-c2ce84f5d3bb",
       "name": "listener_name",
       "caption": "Listener name",
       "type": "java.lang.String",
@@ -45,13 +47,13 @@
       "required": true,
       "isPartOfKey": true,
       "listOfValues": "",
+      "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
-      "autoExport": true,
       "inputPrompt": "",
       "tooltip": "",
       "scope": "Instance",
@@ -60,7 +62,7 @@
   ],
   "files": [
     {
-      "guid": "580217d8-351b-4f62-a6f0-8ecb463e621b",
+      "id": "580217d8-351b-4f62-a6f0-8ecb463e621b",
       "filename": "listener_config.tf",
       "includeName": "",
       "menuCaption": "listener_config.tf",
@@ -79,7 +81,9 @@
       "menuSeparatorBefore": false,
       "hideFromInstanceActionsMenu": false,
       "hideFromBottomMenu": false,
-      "menuPath": ""
+      "menuPath": "",
+      "dockerImage": "",
+      "customCommand": ""
     }
   ],
   "allowedChildren": []

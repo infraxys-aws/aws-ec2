@@ -1,5 +1,6 @@
 {
   "version": "1.0",
+  "id": "c43ba8fa-7831-4eef-8e7e-7eb6830e9274",
   "label": "%load_balancer_name%",
   "type": "LOAD_BALANCER",
   "autoExpand": true,
@@ -8,6 +9,7 @@
   "autoGenerate": false,
   "attributes": [
     {
+      "id": "90122be9-c8e1-4f0f-ba5b-c30879ef9d92",
       "name": "alb_hostname",
       "caption": "Hostname",
       "type": "java.lang.String",
@@ -21,7 +23,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -31,6 +33,7 @@
       "defaultValue": ""
     },
     {
+      "id": "fe8da05e-c029-4ab9-b67f-f39929baf323",
       "name": "enable_deletion_protection",
       "caption": "Enable deletion protection",
       "type": "java.lang.Boolean",
@@ -41,9 +44,10 @@
       "required": true,
       "isPartOfKey": false,
       "listOfValues": "",
+      "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -53,6 +57,7 @@
       "defaultValue": "1"
     },
     {
+      "id": "e693674a-c804-4db8-b9ac-b425048719e5",
       "name": "load_balancer_attach_instance_vn",
       "caption": "Attach instance velocity name",
       "type": "java.lang.String",
@@ -66,7 +71,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -76,6 +81,7 @@
       "defaultValue": ""
     },
     {
+      "id": "6f942f4c-7d47-4266-989f-7ef2d396daee",
       "name": "load_balancer_certificate_arn",
       "caption": "Certificate ARN",
       "type": "java.lang.String",
@@ -89,7 +95,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -99,6 +105,7 @@
       "defaultValue": ""
     },
     {
+      "id": "3d92e5ec-261d-42d7-88ba-db85737d6b5e",
       "name": "load_balancer_name",
       "caption": "Name",
       "type": "java.lang.String",
@@ -111,7 +118,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -119,6 +126,7 @@
       "scope": "Instance"
     },
     {
+      "id": "f10d2c9b-f057-48ce-b9d6-fc5ea303fa5f",
       "name": "load_balancer_security_group_ids",
       "caption": "Security group ids",
       "type": "java.lang.String",
@@ -132,7 +140,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -142,6 +150,7 @@
       "defaultValue": "${aws_security_group.a_sg.id}"
     },
     {
+      "id": "2d359016-acf9-47ce-8c82-2d1873d775d7",
       "name": "load_balancer_subnets",
       "caption": "Subnets",
       "type": "java.lang.String",
@@ -155,7 +164,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -165,6 +174,7 @@
       "defaultValue": "${module.vpc.public_subnets}"
     },
     {
+      "id": "0a8bad4f-9a3b-482f-97b0-889f85b151dd",
       "name": "tags",
       "caption": "Tags",
       "type": "byte[]",
@@ -179,7 +189,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -191,7 +201,7 @@
   ],
   "files": [
     {
-      "guid": "a80aadf0-deea-4de4-a01a-e61a3934a2fc",
+      "id": "a80aadf0-deea-4de4-a01a-e61a3934a2fc",
       "filename": "alb.tf",
       "includeName": "",
       "menuCaption": "alb.tf",
@@ -210,7 +220,9 @@
       "menuSeparatorBefore": false,
       "hideFromInstanceActionsMenu": false,
       "hideFromBottomMenu": false,
-      "menuPath": ""
+      "menuPath": "",
+      "dockerImage": "",
+      "customCommand": ""
     }
   ],
   "allowedChildren": []

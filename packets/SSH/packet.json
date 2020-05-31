@@ -1,18 +1,18 @@
 {
   "version": "1.0",
+  "id": "65c41858-fe58-44e9-b50a-bd33f9ddf483",
   "label": "SSH",
   "type": "",
   "autoExpand": false,
   "skipEveryInstanceFiles": false,
   "limitToAllowedChildren": false,
   "autoGenerate": false,
-  "inheritFilesFromPacketGuid": "",
   "key": "",
   "infoHtml": "",
   "attributes": [],
   "files": [
     {
-      "guid": "3acb5712-66e9-48c0-9d04-64e76e5cf403",
+      "id": "3acb5712-66e9-48c0-9d04-64e76e5cf403",
       "filename": "get_ssh_config.sh",
       "includeName": "",
       "menuCaption": "Get SSH config",
@@ -31,7 +31,9 @@
       "menuSeparatorBefore": false,
       "hideFromInstanceActionsMenu": false,
       "hideFromBottomMenu": false,
-      "menuPath": ""
+      "menuPath": "",
+      "dockerImage": "",
+      "customCommand": ""
     }
   ],
   "allowedChildren": []

@@ -8,13 +8,14 @@
 #if (! $isAmiId)
   #set ($packerInstance = $instance.byVelocity("image_id", true, false))
   #if ($packerInstance) ## with Packer Instance and "ami-", we use the environment variable
-    #set ($prefix = $packerInstance.getAttribute("ami_name_prefix"))
+    #set ($prefix = $packerInstance.getAttribute("ami_name_prefix") + "*")
   #else
   	#set ($prefix = $imageId)
   #end
 
 data "aws_ami" "$instanceName" {
   most_recent      = true
+  
   owners           = [$velocityUtils.doubleQuoteCsvList($instance.getAttribute("image_owners"))]
 
   filter {

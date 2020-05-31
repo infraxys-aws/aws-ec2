@@ -1,5 +1,6 @@
 {
   "version": "1.0",
+  "id": "07aaa698-bd1c-453f-aad1-eecec4321432",
   "label": "%security_group_name% - %description%",
   "type": "SECURITY_GROUP",
   "autoExpand": false,
@@ -9,6 +10,7 @@
   "key": "TF-AWS-SECURITY-GROUP",
   "attributes": [
     {
+      "id": "8233fa49-238b-49c0-8135-0f1b2c876878",
       "name": "description",
       "caption": "description",
       "type": "java.lang.String",
@@ -21,7 +23,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -29,6 +31,7 @@
       "scope": "Instance"
     },
     {
+      "id": "22e4731e-5047-45bf-945f-48e6aea36be0",
       "name": "egress_rules",
       "caption": "Egress rules",
       "type": "byte[]",
@@ -42,7 +45,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -52,6 +55,7 @@
       "defaultValue": "#outbound internet access\negress {\nfrom_port   \u003d 0\nto_port     \u003d 0\nprotocol    \u003d \"-1\"\ncidr_blocks \u003d [\"0.0.0.0/0\"]\n}"
     },
     {
+      "id": "b9e43f2d-442c-42e6-8ec3-e8a7fce2c750",
       "name": "extra_terraform",
       "caption": "Extra Terraform",
       "type": "byte[]",
@@ -65,7 +69,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -75,6 +79,7 @@
       "defaultValue": ""
     },
     {
+      "id": "ba9a9e6a-f638-4e8a-bc7a-2f3d73f77fd8",
       "name": "ingress_rules",
       "caption": "Ingress rules",
       "type": "byte[]",
@@ -88,7 +93,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -98,6 +103,7 @@
       "defaultValue": "ingress {\n    security_groups \u003d [data.terraform_remote_state.vpc.outputs.bastion-sg_id]\n    protocol \u003d \"tcp\"\n    from_port \u003d 22\n    to_port \u003d 22\n}"
     },
     {
+      "id": "75be56db-e3e9-4db7-b127-91884a1e4c22",
       "name": "security_group_name",
       "caption": "Name",
       "type": "java.lang.String",
@@ -110,7 +116,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -118,6 +124,7 @@
       "scope": "Instance"
     },
     {
+      "id": "1e5ff34c-6da0-43dd-bacb-fa688a4e0c6c",
       "name": "tags",
       "caption": "Tags",
       "type": "byte[]",
@@ -132,7 +139,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -144,7 +151,7 @@
   ],
   "files": [
     {
-      "guid": "68dd0199-1531-4193-9969-fef6d15736fb",
+      "id": "68dd0199-1531-4193-9969-fef6d15736fb",
       "filename": "security_group.tf",
       "includeName": "",
       "menuCaption": "security_group.tf",
@@ -163,7 +170,9 @@
       "menuSeparatorBefore": false,
       "hideFromInstanceActionsMenu": false,
       "hideFromBottomMenu": false,
-      "menuPath": ""
+      "menuPath": "",
+      "dockerImage": "",
+      "customCommand": ""
     }
   ],
   "allowedChildren": []

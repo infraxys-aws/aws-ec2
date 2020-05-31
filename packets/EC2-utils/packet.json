@@ -1,5 +1,6 @@
 {
   "version": "1.0",
+  "id": "46d1c9d3-846e-4e46-b264-c17e905dfcf1",
   "label": "EC2 utiils",
   "type": "",
   "autoExpand": false,
@@ -10,6 +11,7 @@
   "infoHtml": "",
   "attributes": [
     {
+      "id": "e3254f48-8129-4739-83f4-aa7b11763061",
       "name": "aws_profile_names",
       "caption": "AWS profile names",
       "type": "java.lang.String",
@@ -23,11 +25,10 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
-      "autoExport": true,
       "inputPrompt": "",
       "tooltip": "\u003cp\u003eEnter a comma-separated list of profile-names that should be used when running these utils\u003c/p\u003e\n\u003cp\u003eAWS Profiles can be added through variables of type \"AWS-CONFIG\" and \"AWS-CREDENTIALS\" and follow the same structure as the respective files under .aws in your home directory.\u003c/p\u003e",
       "scope": "Instance",
@@ -36,7 +37,7 @@
   ],
   "files": [
     {
-      "guid": "6120ee09-9ad6-4ef5-b117-25ce97b84d13",
+      "id": "6120ee09-9ad6-4ef5-b117-25ce97b84d13",
       "filename": "list_open_to_the_world_acls.py",
       "includeName": "",
       "menuCaption": "List open to the world ACLs",
@@ -55,7 +56,9 @@
       "menuSeparatorBefore": false,
       "hideFromInstanceActionsMenu": false,
       "hideFromBottomMenu": false,
-      "menuPath": ""
+      "menuPath": "",
+      "dockerImage": "",
+      "customCommand": ""
     }
   ],
   "allowedChildren": []

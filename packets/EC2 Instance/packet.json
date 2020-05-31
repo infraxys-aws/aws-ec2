@@ -1,14 +1,15 @@
 {
   "version": "1.0",
+  "id": "1da305b2-7075-4ed9-a82a-229a03f8799e",
   "label": "%instance_name%",
   "type": "AWS_EC2_INSTANCE",
   "autoExpand": true,
   "skipEveryInstanceFiles": false,
   "limitToAllowedChildren": false,
   "autoGenerate": false,
-  "inheritFilesFromPacketGuid": "github.com\\infraxys-modules\\terraform\\master\\terraform helper",
   "attributes": [
     {
+      "id": "aefd5bb2-c68b-4a30-87e9-78bad933dfcb",
       "name": "associate_public_ip_address",
       "caption": "Public IP",
       "type": "java.lang.Boolean",
@@ -19,9 +20,10 @@
       "required": true,
       "isPartOfKey": false,
       "listOfValues": "",
+      "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -31,6 +33,7 @@
       "defaultValue": "0"
     },
     {
+      "id": "4b190392-aaf2-4578-b4fd-2a9cb96af6f8",
       "name": "image_id",
       "caption": "AMI or Packer instance",
       "type": "java.lang.String",
@@ -44,7 +47,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -54,6 +57,7 @@
       "defaultValue": ""
     },
     {
+      "id": "5c1ee9bc-89da-4aa8-9582-7ac4912df968",
       "name": "image_owners",
       "caption": "AMI owners",
       "type": "java.lang.String",
@@ -61,13 +65,13 @@
       "formOrder": 1110,
       "visibility": "ALWAYS VISIBLE",
       "writability": "ALWAYS",
-      "required": true,
+      "required": false,
       "isPartOfKey": false,
       "listOfValues": "self,amazon",
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": true,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -77,6 +81,7 @@
       "defaultValue": "amazon"
     },
     {
+      "id": "293cf5fd-18ee-483b-9fff-d8ba4601a9ad",
       "name": "instance_name",
       "caption": "Name",
       "type": "java.lang.String",
@@ -89,7 +94,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -97,6 +102,7 @@
       "scope": "Container"
     },
     {
+      "id": "a2cfc90d-d88e-4596-aff7-173e6f488424",
       "name": "instance_subnet_id",
       "caption": "Subnet id",
       "type": "java.lang.String",
@@ -110,7 +116,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -119,6 +125,7 @@
       "scope": "Instance"
     },
     {
+      "id": "03b485bd-d44c-40b0-b66f-a41f7e50547f",
       "name": "instance_tags",
       "caption": "Tags",
       "type": "byte[]",
@@ -133,7 +140,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -143,6 +150,7 @@
       "defaultValue": "$container.getAttribute(\"aws_core_tag_list\").replaceAll(\"\u003cname\u003e\", \"$instance.getAttribute(\u0027instance_name\u0027)\")"
     },
     {
+      "id": "ba6bc063-e2dd-438c-ace6-12cad2df72bc",
       "name": "instance_type",
       "caption": "Instance type",
       "type": "java.lang.String",
@@ -155,7 +163,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -163,6 +171,7 @@
       "scope": "Instance"
     },
     {
+      "id": "177d61b4-ece8-42a5-963e-17f9a38e7e83",
       "name": "key_pair_name",
       "caption": "Key pair name",
       "type": "java.lang.String",
@@ -176,7 +185,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -186,6 +195,7 @@
       "defaultValue": ""
     },
     {
+      "id": "e08b69ec-3c70-4c42-91a7-7e5a9837f96b",
       "name": "prevent_destroy",
       "caption": "Prevent destroy",
       "type": "java.lang.Boolean",
@@ -199,7 +209,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -209,6 +219,7 @@
       "defaultValue": "1"
     },
     {
+      "id": "a41a4b3c-6322-4ce9-b047-75fd39e0b39e",
       "name": "private_key_file",
       "caption": "Private key file",
       "type": "java.lang.String",
@@ -222,7 +233,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -232,6 +243,7 @@
       "defaultValue": "~/.ssh/keys/${instance.getAttribute(\"key_pair_name\").replaceAll(\"-\", \"_\")}.pem"
     },
     {
+      "id": "88c4470e-9c57-418d-b4f6-a3f2c8e785f1",
       "name": "root_block_device_del_on_term",
       "caption": "Root block device - delete on termination",
       "type": "java.lang.Boolean",
@@ -242,9 +254,10 @@
       "required": true,
       "isPartOfKey": false,
       "listOfValues": "",
+      "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -254,6 +267,7 @@
       "defaultValue": "1"
     },
     {
+      "id": "74a4fe81-f42b-4fb0-b848-48f9dcff1d31",
       "name": "root_block_device_size",
       "caption": "Root block device size (GiB)",
       "type": "java.lang.Long",
@@ -264,9 +278,10 @@
       "required": true,
       "isPartOfKey": false,
       "listOfValues": "",
+      "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -276,6 +291,7 @@
       "defaultValue": "20"
     },
     {
+      "id": "0cbfa7d1-2f04-4302-a268-32e416f34e43",
       "name": "root_block_device_type",
       "caption": "Root block device type",
       "type": "java.lang.String",
@@ -286,9 +302,10 @@
       "required": true,
       "isPartOfKey": false,
       "listOfValues": "standard,gp2,io1,sc1,st1",
+      "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": true,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -298,6 +315,7 @@
       "defaultValue": "gp2"
     },
     {
+      "id": "21cc4e98-2cb7-4efd-a16b-822d8412fd84",
       "name": "ssh_connect_username",
       "caption": "Connect username",
       "type": "java.lang.String",
@@ -311,7 +329,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -321,6 +339,7 @@
       "defaultValue": "ubuntu"
     },
     {
+      "id": "a0a8eb3b-e34f-4f11-bc12-77d06a13fee1",
       "name": "user_data_script",
       "caption": "User data script",
       "type": "byte[]",
@@ -335,7 +354,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -345,6 +364,7 @@
       "defaultValue": ""
     },
     {
+      "id": "eb56a14b-d02a-4c3b-b1e3-fe670955b39e",
       "name": "vpc_velocity_name",
       "caption": "VPC Velocity name",
       "type": "java.lang.String",
@@ -358,7 +378,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -370,7 +390,7 @@
   ],
   "files": [
     {
-      "guid": "6cf63840-7f65-4b6d-89b9-560ef580614d",
+      "id": "6cf63840-7f65-4b6d-89b9-560ef580614d",
       "filename": "ec2_instance.tf",
       "includeName": "",
       "menuCaption": "ec2_instance.tf",
@@ -389,10 +409,12 @@
       "menuSeparatorBefore": false,
       "hideFromInstanceActionsMenu": false,
       "hideFromBottomMenu": false,
-      "menuPath": ""
+      "menuPath": "",
+      "dockerImage": "",
+      "customCommand": ""
     },
     {
-      "guid": "698779b8-63c3-48c4-bb0a-786b3c51c54e",
+      "id": "698779b8-63c3-48c4-bb0a-786b3c51c54e",
       "filename": "user_data.sh.tpl",
       "includeName": "",
       "menuCaption": "user_data.sh.tpl",
@@ -411,7 +433,9 @@
       "menuSeparatorBefore": false,
       "hideFromInstanceActionsMenu": false,
       "hideFromBottomMenu": false,
-      "menuPath": ""
+      "menuPath": "",
+      "dockerImage": "",
+      "customCommand": ""
     }
   ],
   "allowedChildren": []

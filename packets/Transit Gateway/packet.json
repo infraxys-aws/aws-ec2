@@ -1,15 +1,16 @@
 {
   "version": "1.0",
+  "id": "bbe99038-8ffc-42f3-aeea-0654bc4b5fe9",
   "label": "Transit Gateway %tgw_name%",
   "type": "AWS_TRANSIT_GATEWAY",
   "autoExpand": true,
   "skipEveryInstanceFiles": false,
   "limitToAllowedChildren": false,
   "autoGenerate": false,
-  "inheritFilesFromPacketGuid": "github.com\\infraxys-modules\\terraform\\master\\terraform helper\n",
   "infoHtml": "\u003ch1\u003eEC2 Transit Gateway\u003c/h1\u003e\n\u003cp\u003e\u003ca href\u003d\"https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway.html\" target\u003d\"_blank\"\u003eSee Terraform aws_ec2_transit_gateway\u003c/a\u003e.\u003c/p\u003e",
   "attributes": [
     {
+      "id": "5aedffc5-342f-449e-b20e-807b7ac97cbf",
       "name": "amazon_side_asn",
       "caption": "Amazon side ASN",
       "type": "java.lang.Long",
@@ -23,7 +24,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -33,6 +34,7 @@
       "defaultValue": "64512"
     },
     {
+      "id": "30e90497-a472-4af2-b549-267e0465f377",
       "name": "auto_accept_shared_attachments",
       "caption": "Auto accept shared attachments",
       "type": "byte[]",
@@ -46,7 +48,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -56,6 +58,7 @@
       "defaultValue": "disable"
     },
     {
+      "id": "c92a1d46-3ead-41a2-83dd-9f8790330c36",
       "name": "default_route_table_association",
       "caption": "Default route table association",
       "type": "byte[]",
@@ -69,7 +72,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -79,6 +82,7 @@
       "defaultValue": "enable"
     },
     {
+      "id": "d8fc1531-22b5-41dd-a5fb-7f7f227964ca",
       "name": "default_route_table_propagation",
       "caption": "Default route table propagation",
       "type": "byte[]",
@@ -92,7 +96,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -102,6 +106,7 @@
       "defaultValue": "enable"
     },
     {
+      "id": "0c2648bd-8bf6-47cc-99ed-d3ecb66e3363",
       "name": "dns_support",
       "caption": "DNS support",
       "type": "byte[]",
@@ -115,7 +120,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -125,6 +130,7 @@
       "defaultValue": "enable"
     },
     {
+      "id": "19a9d9f1-68b2-41c3-93f5-eb321dd6e0a6",
       "name": "tgw_description",
       "caption": "Description",
       "type": "java.lang.String",
@@ -138,7 +144,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -148,6 +154,7 @@
       "defaultValue": ""
     },
     {
+      "id": "df4b4505-8cf5-4014-b648-947d95411665",
       "name": "tgw_name",
       "caption": "Name",
       "type": "java.lang.String",
@@ -160,14 +167,15 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
       "inputPrompt": "",
-      "scope": "Instance"
+      "scope": "Container"
     },
     {
+      "id": "06f8b3a2-efd4-4686-93a6-a0c4ac969dfa",
       "name": "tgw_tags",
       "caption": "Tags",
       "type": "byte[]",
@@ -182,7 +190,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -192,6 +200,7 @@
       "defaultValue": "$container.getAttribute(\"aws_core_tag_list\").replaceAll(\"\u003cname\u003e\", \"$instance.getAttribute(\u0027instance_name\u0027)\")"
     },
     {
+      "id": "79de0ef8-39d2-466d-90e5-209c3d8ff229",
       "name": "vpn_ecmp_support",
       "caption": "VPN ECMP support",
       "type": "byte[]",
@@ -205,7 +214,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -217,7 +226,7 @@
   ],
   "files": [
     {
-      "guid": "9d091ca6-e0f2-4152-b8ce-01fa7fc713a6",
+      "id": "9d091ca6-e0f2-4152-b8ce-01fa7fc713a6",
       "filename": "transit_gateway.tf",
       "includeName": "",
       "menuCaption": "transit_gateway.tf",
@@ -236,7 +245,9 @@
       "menuSeparatorBefore": false,
       "hideFromInstanceActionsMenu": false,
       "hideFromBottomMenu": false,
-      "menuPath": ""
+      "menuPath": "",
+      "dockerImage": "",
+      "customCommand": ""
     }
   ],
   "allowedChildren": []

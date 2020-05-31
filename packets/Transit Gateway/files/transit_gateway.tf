@@ -10,7 +10,7 @@ resource "aws_ec2_transit_gateway" "$tgwName" {
   vpn_ecmp_support = "$instance.getAttribute("vpn_ecmp_support")"
   tags = {
   	$instance.getAttribute("tgw_tags")
-  	}
+  }
 }
 
 output "arn" {
@@ -27,12 +27,6 @@ output "id" {
 	value = "${D}{aws_ec2_transit_gateway.${tgwName}.id}"
 	description = "EC2 Transit Gateway identifier"
 }
-
-output "arn" {
-	value = "${D}{aws_ec2_transit_gateway.${tgwName}.arn}"
-	description = "EC2 Transit Gateway ARN"
-}
-
 
 output "owner_id" {
 	value = "${D}{aws_ec2_transit_gateway.${tgwName}.owner_id}"

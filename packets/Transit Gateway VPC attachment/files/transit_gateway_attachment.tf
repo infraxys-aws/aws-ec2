@@ -20,51 +20,21 @@
 	#set ($vpcId = '"' + $instance.getAttribute("vpc_id") + '"')
 #end
 
-#if ($instance.getAttribute("aws_profile") == "")
-  #set ($providerLine = "")
-#else
-  #set ($providerLine = 'provider = "aws.' + $attachmentName + '"')
+#set ($providerLine = $instance.getAttribute("provider_line", ""))
+#if ($providerLine != "")
   
-data "aws_caller_identity" "$attachmentName" {
-  $providerLine
-}
-
-resource "aws_ram_resource_share" "$attachmentName" {
-  # $providerLine
-
-  name = "$attachmentName"
+## accept the attachment in the other account that we create below 
+resource "aws_ec2_transit_gateway_vpc_attachment_accepter" "$attachmentName" {
+  transit_gateway_attachment_id = aws_ec2_transit_gateway_vpc_attachment.${attachmentName}.id
 
   tags = {
-    Name = "$attachmentName"
+    $instance.getAttribute("attachment_tags")
   }
+  depends_on = [
+    aws_ec2_transit_gateway_vpc_attachment.${attachmentName}
+  ]
 }
-
-// Share the transit gateway...
-resource "aws_ram_resource_association" "$attachmentName" {
-  #$providerLine
-  resource_arn       = $tgwArnGet
-  resource_share_arn = aws_ram_resource_share.${attachmentName}.id
-}
-
-// ...with the second account.
-resource "aws_ram_principal_association" "$attachmentName" {
-  $providerLine
-
-  principal          = data.aws_caller_identity.${attachmentName}.account_id
-  resource_share_arn = aws_ram_resource_share.${attachmentName}.id
-}
-
 #end
-
-
-## data "terraform_remote_state" "$tgaVpcStateName" {
-## backend = "s3"
-##   config = {
-##     bucket = "$stateInstance.getAttribute("state_s3_bucket")"
-##     key = "$stateInstance.getAttribute("state_key")"
-##     region = "$stateInstance.getAttribute("state_aws_region")"
-##   }
-## }
 
 resource "aws_ec2_transit_gateway_vpc_attachment" "$attachmentName" {
   $providerLine

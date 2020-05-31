@@ -1,16 +1,17 @@
 {
   "version": "1.0",
+  "id": "2605d0c6-7ab4-460a-8259-91e9c4cd077d",
   "label": "VPC attachment - %attachment_name%",
   "type": "AWS_TRANSIT_GATEWAY_VPC_ATTACHMENT",
   "autoExpand": false,
   "skipEveryInstanceFiles": false,
   "limitToAllowedChildren": false,
   "autoGenerate": false,
-  "inheritFilesFromPacketGuid": "github.com\\infraxys-modules\\terraform\\master\\terraform helper",
   "key": "",
-  "infoHtml": "\u003ch1\u003eEC2 Transit Gateway VPC Attachment\u003c/h1\u003e\n\u003cp\u003e\u003ca href\u003d\"https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment.html\" target\u003d\"_blank\"\u003eSee Terraform aws_ec2_transit_gateway_vpc_attachment \u003c/a\u003e.\u003c/p\u003e",
+  "infoHtml": "\u003ch1\u003eEC2 Transit Gateway VPC Attachment\u003c/h1\u003e\n\u003cp\u003ePut a \"Terraform AWS provider\"-instance above this packet if the attachment needs to be in another account.\u003c/p\u003e\n\u003cp\u003e\u003ca href\u003d\"https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_vpc_attachment.html\" target\u003d\"_blank\"\u003eSee Terraform aws_ec2_transit_gateway_vpc_attachment \u003c/a\u003e.\u003c/p\u003e",
   "attributes": [
     {
+      "id": "dcc240e9-ad07-487a-8b0c-fcce70608f6d",
       "name": "attachment_name",
       "caption": "Name",
       "type": "java.lang.String",
@@ -24,9 +25,9 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
-      "parseWithVelocity": false,
+      "parseWithVelocity": true,
       "cloneAttribute": true,
       "inputPrompt": "",
       "tooltip": "",
@@ -34,6 +35,7 @@
       "defaultValue": ""
     },
     {
+      "id": "66c2d1cb-dd09-4819-b52e-86d5befe6377",
       "name": "attachment_tags",
       "caption": "Tags",
       "type": "byte[]",
@@ -48,38 +50,17 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
       "inputPrompt": "",
       "tooltip": "\u003cp\u003eSpecify the tags to add to this attachment. This value is parsed with Velocity.\u003c/p\u003e\n\u003cp\u003eEnter something like the following:\u003cp\u003e\n\u003cpre\u003e\u003ccode\u003e\n    Owner       \u003d \"user\",\n    Environment \u003d \"staging\",\n    Name        \u003d \"complete\"\n\u003c/pre\u003e\u003c/code\u003e\nor \u003ccode\u003e$instance.parent.getAttribute(\"tgw_tags\")\u003c/code\u003e",
       "scope": "Instance",
-      "defaultValue": "$container.getAttribute(\"aws_core_tag_list\").replaceAll(\"\u003cname\u003e\", \"$instance.getAttribute(\u0027instance_name\u0027)\")"
+      "defaultValue": "$container.getAttribute(\"aws_core_tag_list\").replaceAll(\"\u003cname\u003e\", $instance.getAttribute(\"attachment_name\")).replaceAll(\"\u003ctenant\u003e\", \"transit gateway\")"
     },
     {
-      "name": "aws_profile",
-      "caption": "AWS profile",
-      "type": "java.lang.String",
-      "formColumn": 2,
-      "formOrder": 2000,
-      "visibility": "ALWAYS VISIBLE",
-      "writability": "ALWAYS",
-      "required": false,
-      "isPartOfKey": false,
-      "listOfValues": "",
-      "referenceFilter": "",
-      "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
-      "newItemsAllowed": false,
-      "parseWithVelocity": false,
-      "cloneAttribute": true,
-      "inputPrompt": "",
-      "tooltip": "\u003cp\u003eIf this attachment should be created in another account than the transit gateway, then enter the profile name for that account here.\u003c/p\u003e",
-      "scope": "Instance",
-      "defaultValue": ""
-    },
-    {
+      "id": "ccd27c61-d776-40c8-9411-216cdb52c36b",
       "name": "dns_support",
       "caption": "DNS support",
       "type": "byte[]",
@@ -93,7 +74,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -103,6 +84,7 @@
       "defaultValue": "enable"
     },
     {
+      "id": "47fad84e-cadb-4d05-8e6e-66086c687ada",
       "name": "ipv6_support",
       "caption": "IPv6 support",
       "type": "byte[]",
@@ -116,7 +98,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -126,6 +108,7 @@
       "defaultValue": "disable"
     },
     {
+      "id": "baa79b97-0dfb-4841-9846-b0a54cc77696",
       "name": "route_to_tgw",
       "caption": "Route through TGW",
       "type": "java.lang.String",
@@ -139,7 +122,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": true,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -149,6 +132,7 @@
       "defaultValue": "ALL"
     },
     {
+      "id": "75831e39-0539-449d-bff0-5cc08154ee65",
       "name": "subnet_ids",
       "caption": "Subnet IDs",
       "type": "java.lang.String",
@@ -159,9 +143,10 @@
       "required": false,
       "isPartOfKey": false,
       "listOfValues": "",
+      "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -171,6 +156,7 @@
       "defaultValue": ""
     },
     {
+      "id": "c359762f-8263-4478-9d52-60db6500fb90",
       "name": "transit_gateway_default_route_table_association",
       "caption": "Default route association",
       "type": "java.lang.Boolean",
@@ -184,7 +170,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -194,6 +180,7 @@
       "defaultValue": "1"
     },
     {
+      "id": "c3aa36d3-d5fb-4173-abf6-240c52991f2b",
       "name": "transit_gateway_default_route_table_propagation",
       "caption": "Default route propagation",
       "type": "java.lang.Boolean",
@@ -207,7 +194,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -217,6 +204,7 @@
       "defaultValue": "1"
     },
     {
+      "id": "6df1656f-2378-45d2-aa18-0ae99850ecc3",
       "name": "transit_gateway_velocity_name",
       "caption": "Transit gateway Velocity name",
       "type": "java.lang.String",
@@ -227,9 +215,10 @@
       "required": false,
       "isPartOfKey": false,
       "listOfValues": "",
+      "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -239,6 +228,7 @@
       "defaultValue": ""
     },
     {
+      "id": "0e7519f5-13aa-4ce0-a59d-80f7dea569b7",
       "name": "vpc_id",
       "caption": "Or - VPC ID",
       "type": "java.lang.String",
@@ -249,9 +239,10 @@
       "required": false,
       "isPartOfKey": false,
       "listOfValues": "",
+      "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -261,6 +252,7 @@
       "defaultValue": ""
     },
     {
+      "id": "ecf2833c-a473-489b-9808-8b1cd9f010d1",
       "name": "vpc_state_velocity_name",
       "caption": "VPC State Velocity name",
       "type": "java.lang.String",
@@ -274,7 +266,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -286,31 +278,7 @@
   ],
   "files": [
     {
-      "guid": "d49b5e3e-c636-4bf3-bb87-7de023fcdfaa",
-      "filename": "init.sh",
-      "includeName": "",
-      "menuCaption": "init.sh",
-      "directory": "",
-      "runsIndependent": false,
-      "runsParallel": false,
-      "runBeforeIndependentActions": false,
-      "parseWithVelocity": true,
-      "executable": false,
-      "saveWith": "CURRENT INSTANCE",
-      "isInteractive": false,
-      "hideRunnerWindow": false,
-      "timeoutSeconds": 3600,
-      "key": "",
-      "menuOrder": 100,
-      "menuSeparatorBefore": false,
-      "hideFromInstanceActionsMenu": false,
-      "hideFromBottomMenu": false,
-      "menuPath": "",
-      "dockerImage": "",
-      "customCommand": ""
-    },
-    {
-      "guid": "5781ff9e-f8a1-4e75-9776-bd22360c8c8e",
+      "id": "5781ff9e-f8a1-4e75-9776-bd22360c8c8e",
       "filename": "transit_gateway_attachment.tf",
       "includeName": "",
       "menuCaption": "transit_gateway_attachment.tf",
@@ -329,7 +297,9 @@
       "menuSeparatorBefore": false,
       "hideFromInstanceActionsMenu": false,
       "hideFromBottomMenu": false,
-      "menuPath": ""
+      "menuPath": "",
+      "dockerImage": "",
+      "customCommand": ""
     }
   ],
   "allowedChildren": []

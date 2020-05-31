@@ -1,5 +1,6 @@
 {
   "version": "1.0",
+  "id": "4b6ed1b7-619e-472c-b165-f2df9c167a17",
   "label": "Bastion host",
   "autoExpand": false,
   "skipEveryInstanceFiles": false,
@@ -9,6 +10,7 @@
   "infoHtml": "",
   "attributes": [
     {
+      "id": "72d722af-dbaf-4317-8d88-a86c7dc5151c",
       "name": "aws_region",
       "caption": "AWS region",
       "type": "java.lang.String",
@@ -19,9 +21,10 @@
       "required": true,
       "isPartOfKey": false,
       "listOfValues": "",
+      "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -31,6 +34,7 @@
       "defaultValue": "$container.getAttribute(\"aws_vpc_region\")"
     },
     {
+      "id": "5a8e1283-fb3e-4634-846d-4c5ffda46c24",
       "name": "bastion_name",
       "caption": "bastion_name",
       "type": "java.lang.String",
@@ -44,7 +48,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -54,6 +58,7 @@
       "defaultValue": "$instance.parent.getAttribute(\"vpc_name_prefix\")-bastion-asg"
     },
     {
+      "id": "e8035ab0-f1d2-4b4b-8ec7-90db4dea346b",
       "name": "image_id",
       "caption": "Image id",
       "type": "java.lang.String",
@@ -67,7 +72,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": true,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -77,6 +82,7 @@
       "defaultValue": "ami-0de53d8956e8dcf80"
     },
     {
+      "id": "fc4e3cbc-a698-49eb-924f-5ac30c5113be",
       "name": "image_owners",
       "caption": "Image owner",
       "type": "java.lang.String",
@@ -90,7 +96,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": true,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -100,6 +106,7 @@
       "defaultValue": "amazon"
     },
     {
+      "id": "08fa6228-061b-4c45-a3bc-521f1cb4eeb6",
       "name": "instance_type",
       "caption": "Instance type",
       "type": "java.lang.String",
@@ -113,7 +120,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": true,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -123,6 +130,7 @@
       "defaultValue": "t3.nano"
     },
     {
+      "id": "04d90c41-ad38-4459-87ee-d67ed51786fb",
       "name": "key_pair_name",
       "caption": "Key pair name",
       "type": "java.lang.String",
@@ -136,7 +144,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -146,6 +154,7 @@
       "defaultValue": ""
     },
     {
+      "id": "857fbc7c-9c34-4e42-8b24-d8a1ab66be0d",
       "name": "private_key_file",
       "caption": "Private key file",
       "type": "java.lang.String",
@@ -159,7 +168,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -169,6 +178,7 @@
       "defaultValue": "/root/.ssh/keys/${instance.getAttribute(\"key_pair_name\").replaceAll(\"-\", \"_\")}.pem"
     },
     {
+      "id": "643766c8-2681-46c8-b6ac-c5307401c8e2",
       "name": "propagated_tag_list",
       "caption": "Propagated tag list",
       "type": "byte[]",
@@ -182,7 +192,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -192,6 +202,7 @@
       "defaultValue": ""
     },
     {
+      "id": "1091905f-358c-45a3-98cb-e202dc8716d6",
       "name": "ssh_username",
       "caption": "SSH username",
       "type": "java.lang.String",
@@ -205,7 +216,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": false,
       "cloneAttribute": true,
@@ -215,6 +226,7 @@
       "defaultValue": "ec2-user"
     },
     {
+      "id": "6a3c0e6a-866b-403c-9523-4f8d52be7259",
       "name": "tag_list",
       "caption": "Tag list",
       "type": "byte[]",
@@ -229,7 +241,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -239,6 +251,7 @@
       "defaultValue": ""
     },
     {
+      "id": "44dfaf32-3913-46b5-aa22-c48aaab3775d",
       "name": "whitelist",
       "caption": "Whitelist",
       "type": "java.lang.String",
@@ -252,7 +265,7 @@
       "cacheMinutes": 0,
       "referenceFilter": "",
       "referenceValueAttributeName": "",
-      "referenceChildGuidFilter": "",
+      "referenceChildIdFilter": "",
       "newItemsAllowed": false,
       "parseWithVelocity": true,
       "cloneAttribute": true,
@@ -264,7 +277,7 @@
   ],
   "files": [
     {
-      "guid": "64ab932d-f00b-493d-a322-a0e39e278af7",
+      "id": "64ab932d-f00b-493d-a322-a0e39e278af7",
       "filename": "bastion.tf",
       "menuCaption": "bastion.tf",
       "directory": "",
@@ -282,7 +295,9 @@
       "menuSeparatorBefore": false,
       "hideFromInstanceActionsMenu": false,
       "hideFromBottomMenu": false,
-      "menuPath": ""
+      "menuPath": "",
+      "dockerImage": "",
+      "customCommand": ""
     }
   ],
   "allowedChildren": []
