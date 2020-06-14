@@ -1,4 +1,5 @@
 #set ($inVpcConfig = $instance.getParentInstanceByPacketType("AWS_VPC"))
+#set ($ignoreChanges = $instance.getAttribute("ignore_changes"))
 #if ($extra_terraform)
 $extra_terraform
 #end
@@ -8,6 +9,11 @@ resource "aws_security_group" "$security_group_name" {
     description = "$instance.getAttribute("description")"
     $instance.getAttribute("ingress_rules")
     $instance.getAttribute("egress_rules")
+#if ($ignoreChanges != "")
+	lifecycle {
+    	ignore_changes = $ignoreChanges
+    }
+#end
     tags = {
 $tags
     }

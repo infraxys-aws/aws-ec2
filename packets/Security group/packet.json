@@ -147,6 +147,29 @@
       "tooltip": "\u003cp\u003eSpecify the tags to add to AWS resources. This value is parsed with Velocity.\u003c/p\u003e\n\u003cp\u003eEnter something like the following:\u003cp\u003e\n\u003cpre\u003e\u003ccode\u003e\ntags {\n    Owner       \u003d \"user\",\n    Environment \u003d \"staging\",\n    Name        \u003d \"complete\"\n}\n\u003c/pre\u003e\u003c/code\u003e",
       "scope": "Instance",
       "defaultValue": ""
+    },
+    {
+      "id": "ebcbc7fd-d4b0-4b04-bf16-afc18d698cca",
+      "name": "ignore_changes",
+      "caption": "Ignore changes",
+      "type": "java.lang.String",
+      "formColumn": 1,
+      "formOrder": 1500,
+      "visibility": "ALWAYS VISIBLE",
+      "writability": "ALWAYS",
+      "required": false,
+      "isPartOfKey": false,
+      "listOfValues": "all",
+      "referenceFilter": "",
+      "referenceValueAttributeName": "",
+      "referenceChildIdFilter": "",
+      "newItemsAllowed": true,
+      "parseWithVelocity": false,
+      "cloneAttribute": true,
+      "inputPrompt": "",
+      "tooltip": "",
+      "scope": "Instance",
+      "defaultValue": ""
     }
   ],
   "files": [
