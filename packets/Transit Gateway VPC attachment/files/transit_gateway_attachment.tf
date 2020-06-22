@@ -1,8 +1,9 @@
-#set ($tgwInstance = $instance.byVelocity("transit_gateway_velocity_name", false, false))
-#if ($tgwInstance)
+#if ($instance.getAttribute("transit_gateway_velocity_name") != "")
+	#set ($tgwInstance = $instance.byVelocity("transit_gateway_velocity_name", false, false))
+	#set ($tgwStateName = $tgwInstance.getAttribute("state_name"))
 	#set ($tgwName = $tgwInstance.getAttribute("tgw_name"))
-	#set ($tgwArnGet = "data.terraform_remote_state." + $tgwName + "-state.outputs.arn")
-	#set ($tgwIdGet = "data.terraform_remote_state." + $tgwName + "-state.outputs.id")
+	#set ($tgwArnGet = "data.terraform_remote_state." + $tgwStateName + ".outputs.arn")
+	#set ($tgwIdGet = "data.terraform_remote_state." + $tgwStateName + ".outputs.id")
 #else
 	#set ($tgwName = $instance.parent.getAttribute("tgw_name"))
 	#set ($tgwArnGet = "aws_ec2_transit_gateway." + $tgwName + ".arn")
@@ -11,13 +12,14 @@
 #set ($attachmentName = $instance.getAttribute("attachment_name"))
 #set ($stateInstance = $instance.byVelocity("vpc_state_velocity_name", false, false))
 
-#if ($stateInstance)
-    #set ($tgaVpcStateName = $stateInstance.getAttribute("state_name"))
-    #set ($subnetIds = "data.terraform_remote_state." + $tgaVpcStateName + ".outputs.private_subnets")
-	#set ($vpcId = "data.terraform_remote_state." + $tgaVpcStateName + ".outputs.vpc_id")
-#else
-	#set ($subnetIds = "[ " + $instance.getAttribute("subnet_ids") + " ]")
+#if ($instance.getAttribute("subnet_ids") != "")
+	#set ($subnetIds = '[ "' + $instance.getAttribute("subnet_ids").replace(",", '","') + '"]')
 	#set ($vpcId = '"' + $instance.getAttribute("vpc_id") + '"')
+#else
+	#set ($vpcStateInstance = $instance.byVelocity("vpc_state_velocity_name"))
+	#set ($tgaVpcStateName = $vpcStateInstance.getAttribute("state_name"))
+	#set ($subnetIds = "data.terraform_remote_state." + $tgaVpcStateName + ".outputs.private_subnets")
+	#set ($vpcId = "data.terraform_remote_state." + $tgaVpcStateName + ".outputs.vpc_id")
 #end
 
 #set ($providerLine = $instance.getAttribute("provider_line", ""))
@@ -51,11 +53,11 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "$attachmentName" {
 }
 
 output "${attachmentName}_id" {
-  value = "${D}{aws_ec2_transit_gateway_vpc_attachment.${attachmentName}.id}"
+  value = aws_ec2_transit_gateway_vpc_attachment.${attachmentName}.id
   description = "EC2 Transit Gateway Amazon Resource Name (ARN)"
 }
 
 output "${attachmentName}_vpc_owner_id" {
-	value = "${D}{aws_ec2_transit_gateway_vpc_attachment.${attachmentName}.vpc_owner_id}"
+	value = aws_ec2_transit_gateway_vpc_attachment.${attachmentName}.vpc_owner_id
 	description = "EC2 Transit Gateway Amazon Resource Name (ARN)"
 }

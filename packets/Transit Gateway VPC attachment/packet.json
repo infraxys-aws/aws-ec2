@@ -151,7 +151,7 @@
       "parseWithVelocity": false,
       "cloneAttribute": true,
       "inputPrompt": "",
-      "tooltip": "\u003cp\u003eIf not Velocity state is available, then you can specify subnet ids directly\u003c/p\u003e",
+      "tooltip": "\u003cp\u003eIf no Velocity state is available, then you can specify subnet ids directly\u003c/p\u003e",
       "scope": "Instance",
       "defaultValue": ""
     },
@@ -247,7 +247,7 @@
       "parseWithVelocity": false,
       "cloneAttribute": true,
       "inputPrompt": "",
-      "tooltip": "\u003cp\u003eIf not Velocity state is available, then you can specify a vpc_id directly\u003c/p\u003e",
+      "tooltip": "\u003cp\u003eIf no Velocity state is available, then you can specify a vpc_id directly\u003c/p\u003e",
       "scope": "Instance",
       "defaultValue": ""
     },

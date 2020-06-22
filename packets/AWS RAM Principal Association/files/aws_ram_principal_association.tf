@@ -1,8 +1,9 @@
-#set ($rsInstance = $instance.byVelocity("resource_share_velocity_name", false, false))
-#if ($rsInstance)
+#if ($instance.getAttribute("resource_share_velocity_name") != "")
+	#set ($rsInstance = $instance.byVelocity("resource_share_velocity_name"))
 	#set ($tgwName = $rsInstance.parent.getAttribute("tgw_name"))
 	#set ($rsName = $rsInstance.getAttribute("resource_share_name"))
-	#set ($rsArnGet = "data.terraform_remote_state." + $tgwName + "-state.outputs." + $rsName + "_arn")
+	#set ($rsStateName = $rsInstance.getAttribute("state_name"))
+	#set ($rsArnGet = "data.terraform_remote_state." + $rsStateName + ".outputs." + $rsName + "_arn")
 #else
 	#set ($tgwName = $instance.parent.getAttribute("tgw_name"))
 	#set ($rsName = $instance.parent.getAttribute("resource_share_name"))
