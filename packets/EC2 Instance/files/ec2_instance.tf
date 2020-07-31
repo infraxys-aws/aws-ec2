@@ -51,6 +51,7 @@ resource "aws_instance" "$instanceName" {
     key_name = "$instance.getAttribute("key_pair_name")"
     subnet_id = $instance.getAttribute("instance_subnet_id")
     associate_public_ip_address = $instance.getBoolean("associate_public_ip_address")
+    disable_api_termination = $instance.getAttributeAsBoolean("disable_api_termination")
     vpc_security_group_ids = [
 #foreach ($securityGroup in $securityGroups)
       aws_security_group.${securityGroup.getAttribute("security_group_name")}.id#if( $foreach.hasNext ),#end
