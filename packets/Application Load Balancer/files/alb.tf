@@ -8,12 +8,15 @@ resource "aws_lb" "$loadBalancerName" {
     security_groups         = $instance.getAttribute("load_balancer_security_group_ids")
     enable_deletion_protection = $instance.getBoolean("enable_deletion_protection")
     idle_timeout = 3600
-    
-    #access_logs {
-    #    bucket              = "someinstance.getAttribute("terraform_state_bucket")"
-    #    prefix              = "application-elb-logs"
-    #    enabled             = false
-    #}
+
+#if ($instance.getAttribute("access_log_bucket") != "")    
+    access_logs {
+        bucket              = "$instance.getAttribute("access_log_bucket")"
+        prefix              = "$instance.getAttribute("access_log_bucket_prefix")"
+        #interval            = "$instance.getAttribute("access_log_interval")"
+        enabled             = true
+    }
+#end
 
     tags = {
 $instance.getAttribute("tags")

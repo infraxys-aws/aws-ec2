@@ -22,6 +22,7 @@ $tags
 #else
     vpc_id = data.terraform_remote_state.vpc.outputs.vpc_id
 #end
+
 }
 
 output "${security_group_name}_id" {
