@@ -2,7 +2,7 @@
 
 resource "aws_lb" "$loadBalancerName" {
     name                    = "$loadBalancerName"
-    internal                = false
+    internal                = $instance.getBoolean("internal")
     load_balancer_type      = "application"
     subnets                 = $instance.getAttribute("load_balancer_subnets")
     security_groups         = $instance.getAttribute("load_balancer_security_group_ids")
@@ -11,9 +11,9 @@ resource "aws_lb" "$loadBalancerName" {
 
 #if ($instance.getAttribute("access_log_bucket") != "")    
     access_logs {
-        bucket              = "$instance.getAttribute("access_log_bucket")"
-        prefix              = "$instance.getAttribute("access_log_bucket_prefix")"
-        #interval            = "$instance.getAttribute("access_log_interval")"
+        bucket              = "$instance.getAttribute("elb_access_log_bucket")"
+        prefix              = "$instance.getAttribute("elb_access_log_bucket_prefix")"
+        #interval            = "$instance.getAttribute("elb_access_log_interval")"
         enabled             = true
     }
 #end

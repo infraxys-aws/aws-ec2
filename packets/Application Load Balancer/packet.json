@@ -192,7 +192,7 @@
     },
     {
       "id": "6c2afbfb-acb1-42a2-b4c8-8a2dc42d0e6d",
-      "name": "access_log_bucket",
+      "name": "elb_access_log_bucket",
       "caption": "Access log bucket",
       "type": "java.lang.String",
       "formColumn": 2,
@@ -215,7 +215,7 @@
     },
     {
       "id": "eee7c4c5-78c7-460a-9646-96a39e8718f0",
-      "name": "access_log_bucket_prefix",
+      "name": "elb_access_log_bucket_prefix",
       "caption": "Access log prefix",
       "type": "java.lang.String",
       "formColumn": 2,
@@ -238,7 +238,7 @@
     },
     {
       "id": "c110d23a-cf36-4de9-acd5-c3a718199712",
-      "name": "access_log_interval",
+      "name": "elb_access_log_interval",
       "caption": "Access log interval",
       "type": "java.lang.String",
       "formColumn": 2,
@@ -258,6 +258,28 @@
       "tooltip": "",
       "scope": "Instance",
       "defaultValue": "60"
+    },
+    {
+      "id": "6c692ee3-2104-43a9-8999-57caaef049d7",
+      "name": "internal",
+      "caption": "Internal load balancer",
+      "type": "java.lang.Boolean",
+      "formColumn": 1,
+      "formOrder": 1500,
+      "visibility": "ALWAYS VISIBLE",
+      "writability": "ALWAYS",
+      "required": true,
+      "isPartOfKey": false,
+      "listOfValues": "",
+      "referenceFilter": "",
+      "referenceValueAttributeName": "",
+      "referenceChildIdFilter": "",
+      "newItemsAllowed": false,
+      "parseWithVelocity": false,
+      "inputPrompt": "",
+      "tooltip": "\u003cp\u003eSelect this if the load balancer should get private IPs instead of public.\u003c/p\u003e",
+      "scope": "Instance",
+      "defaultValue": "0"
     }
   ],
   "files": [
