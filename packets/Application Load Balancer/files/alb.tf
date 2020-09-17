@@ -9,7 +9,7 @@ resource "aws_lb" "$loadBalancerName" {
     enable_deletion_protection = $instance.getBoolean("enable_deletion_protection")
     idle_timeout = 3600
 
-#if ($instance.getAttribute("access_log_bucket") != "")    
+#if ($instance.getAttribute("elb_access_log_bucket") != "")    
     access_logs {
         bucket              = "$instance.getAttribute("elb_access_log_bucket")"
         prefix              = "$instance.getAttribute("elb_access_log_bucket_prefix")"
