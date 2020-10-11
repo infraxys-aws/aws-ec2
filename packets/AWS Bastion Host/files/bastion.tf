@@ -9,8 +9,9 @@
 #if (! $isAmiId)
 data "aws_ami" "bastion_ami" {
   most_recent      = true
+#if ($instance.getAttribute("image_owners") != "")
   owners           = [$velocityUtils.doubleQuoteCsvList($instance.getAttribute("image_owners"))]
-
+#end	
   filter {
     name   = "name"
     values = ["$imageId"]
